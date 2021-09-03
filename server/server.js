@@ -3,9 +3,10 @@ var express = require("express");
 var app = express();
 var mysql = require("mysql");
 const db = require("./models/index");
+const cors = require("cors");
 
 app.use(express.json());
-
+app.use(cors());
 const sequelize = new Sequelize("nathandb", "root", "123", {
   host: "localhost",
   port: 3000,
@@ -30,6 +31,6 @@ app.post("/test", function (request, response) {
       }
     });
 });
-app.listen(3000, function () {
+app.listen(8000, function () {
   console.log("Server is Running");
 });
